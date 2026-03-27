@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LeetCode Patterns</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--bg:#0d1117;--card:#161b22;--border:#30363d;--text:#e6edf3;--dim:#8b949e;--accent:#a855f7;--accent2:#06b6d4;--green:#3fb950;--yellow:#d29922;--red:#f85149;--orange:#f0883e}
+body{background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;padding:20px;max-width:1200px;margin:0 auto;-webkit-font-smoothing:antialiased}
+h1{font-size:28px;font-weight:700;margin-bottom:4px}
+.subtitle{color:var(--dim);font-size:14px;margin-bottom:32px}
+.stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px;margin-bottom:32px}
+.stat-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;text-align:center}
+.stat-card .num{font-size:32px;font-weight:700;color:var(--accent)}
+.stat-card .num.cyan{color:var(--accent2)}
+.stat-card .num.green{color:var(--green)}
+.stat-card .num.orange{color:var(--orange)}
+.stat-card .label{color:var(--dim);font-size:12px;text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+.section-title{font-size:18px;font-weight:600;margin:32px 0 16px;display:flex;align-items:center;gap:8px}
+.section-title span{font-size:20px}
+
+/* Progress bar */
+.progress-bar-container{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px;margin-bottom:32px}
+.progress-bar-bg{background:#21262d;border-radius:8px;height:12px;overflow:hidden;margin-top:8px}
+.progress-bar-fill{height:100%;border-radius:8px;background:linear-gradient(90deg,var(--accent),var(--accent2));transition:width 0.5s ease}
+.progress-label{display:flex;justify-content:space-between;font-size:13px;color:var(--dim);margin-top:6px}
+
+/* Heat map */
+.heatmap{display:flex;gap:3px;flex-wrap:wrap;margin-bottom:32px;background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px}
+.heatmap-title{width:100%;font-size:13px;color:var(--dim);margin-bottom:8px}
+.heat-day{width:14px;height:14px;border-radius:3px;background:#21262d}
+.heat-day.l1{background:#0e4429}
+.heat-day.l2{background:#006d32}
+.heat-day.l3{background:#26a641}
+.heat-day.l4{background:#39d353}
+.heat-day[title]{cursor:default}
+
+/* Pattern cards */
+.patterns-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:12px;margin-bottom:32px}
+.pattern-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px;transition:border-color 0.2s}
+.pattern-card:hover{border-color:var(--accent)}
+.pattern-card h3{font-size:16px;font-weight:600;margin-bottom:8px;color:var(--accent)}
+.pattern-card .trigger{font-size:13px;color:var(--dim);margin-bottom:12px;line-height:1.5}
+.pattern-card pre{background:#0d1117;border:1px solid var(--border);border-radius:8px;padding:12px;font-size:12px;line-height:1.6;overflow-x:auto;color:var(--accent2);font-family:'SF Mono','Fira Code',monospace}
+.pattern-card .problems{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+.pattern-card .problems .tag{background:#21262d;color:var(--dim);font-size:11px;padding:3px 8px;border-radius:6px}
+
+/* Spaced repetition */
+.sr-list{display:grid;gap:8px;margin-bottom:32px}
+.sr-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center;font-size:14px}
+.sr-item .name{font-weight:500}
+.sr-item .due{font-size:12px;padding:4px 10px;border-radius:6px;font-weight:600}
+.sr-item .due.overdue{background:rgba(248,81,73,0.15);color:var(--red)}
+.sr-item .due.today{background:rgba(210,153,34,0.15);color:var(--yellow)}
+.sr-item .due.upcoming{background:rgba(63,185,80,0.15);color:var(--green)}
+.sr-item .due.later{background:#21262d;color:var(--dim)}
+
+/* Recent log */
+.log-list{display:grid;gap:6px;margin-bottom:32px}
+.log-item{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:12px 16px;display:grid;grid-template-columns:90px 1fr auto;align-items:center;gap:12px;font-size:13px}
+.log-item .date{color:var(--dim);font-size:12px;font-family:monospace}
+.log-item .diff{font-size:11px;padding:2px 8px;border-radius:4px;font-weight:600}
+.log-item .diff.Easy{background:rgba(63,185,80,0.15);color:var(--green)}
+.log-item .diff.Medium{background:rgba(210,153,34,0.15);color:var(--yellow)}
+.log-item .diff.Hard{background:rgba(248,81,73,0.15);color:var(--red)}
+.log-item .notes{color:var(--dim);font-size:12px;grid-column:1/-1;padding-top:4px;line-height:1.4}
+
+/* Streak fire */
+.streak-fire{font-size:28px;display:inline}
+
+@media(max-width:600px){
+  body{padding:12px}
+  .stats-row{grid-template-columns:repeat(2,1fr)}
+  .patterns-grid{grid-template-columns:1fr}
+  .log-item{grid-template-columns:80px 1fr auto}
+  h1{font-size:22px}
+}
+</style>
+</head>
+<body>
+
+<h1>⚡ LeetCode Patterns</h1>
+<p class="subtitle">Pattern recognition + spaced repetition tracker</p>
+
+<div class="stats-row" id="stats"></div>
+
+<div class="progress-bar-container">
+  <div style="display:flex;justify-content:space-between;align-items:center">
+    <span style="font-size:14px;font-weight:600">8-Week Roadmap</span>
+    <span id="progress-pct" style="font-size:14px;color:var(--accent);font-weight:700"></span>
+  </div>
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+  <div class="progress-label"><span id="progress-done"></span><span id="progress-total"></span></div>
+</div>
+
+<div class="heatmap" id="heatmap">
+  <div class="heatmap-title">Activity (last 60 days)</div>
+</div>
+
+<div class="section-title"><span>🔥</span> Spaced Repetition — Due</div>
+<div class="sr-list" id="sr-list"></div>
+
+<div class="section-title"><span>🧠</span> Patterns</div>
+<div class="patterns-grid" id="patterns"></div>
+
+<div class="section-title"><span>📋</span> Recent Solves</div>
+<div class="log-list" id="log"></div>
+
+<script>
+const DATA_URL = 'data.json';
+
+async function load() {
+  const res = await fetch(DATA_URL + '?t=' + Date.now());
+  const data = await res.json();
+  render(data);
+}
+
+function render(data) {
+  const today = new Date().toISOString().slice(0, 10);
+  const completed = data.completed || [];
+  const patterns = data.patterns || [];
+  const sr = data.spacedRepetition || [];
+  const plan = data.weekPlan || {};
+
+  // Stats
+  const totalSolved = completed.length;
+  const easyCount = completed.filter(c => c.difficulty === 'Easy').length;
+  const medCount = completed.filter(c => c.difficulty === 'Medium').length;
+  const hardCount = completed.filter(c => c.difficulty === 'Hard').length;
+
+  // Streak
+  let streak = 0;
+  const dateSet = new Set(completed.map(c => c.date));
+  let d = new Date();
+  // Check if solved today; if not, start from yesterday
+  const todayStr = d.toISOString().slice(0, 10);
+  if (!dateSet.has(todayStr)) {
+    d.setDate(d.getDate() - 1);
+  }
+  while (true) {
+    const ds = d.toISOString().slice(0, 10);
+    if (dateSet.has(ds)) { streak++; d.setDate(d.getDate() - 1); }
+    else break;
+  }
+
+  document.getElementById('stats').innerHTML = `
+    <div class="stat-card"><div class="num">${totalSolved}</div><div class="label">Solved</div></div>
+    <div class="stat-card"><div class="num green">${easyCount}</div><div class="label">Easy</div></div>
+    <div class="stat-card"><div class="num orange">${medCount}</div><div class="label">Medium</div></div>
+    <div class="stat-card"><div class="num cyan">${patterns.length}</div><div class="label">Patterns</div></div>
+    <div class="stat-card"><div class="num">${streak}<span class="streak-fire">🔥</span></div><div class="label">Day Streak</div></div>
+  `;
+
+  // Progress bar
+  const total = plan.totalProblems || 80;
+  const pct = Math.round((totalSolved / total) * 100);
+  document.getElementById('progress-pct').textContent = pct + '%';
+  document.getElementById('progress-fill').style.width = pct + '%';
+  document.getElementById('progress-done').textContent = totalSolved + ' solved';
+  document.getElementById('progress-total').textContent = total + ' total';
+
+  // Heatmap (last 60 days)
+  const heatmap = document.getElementById('heatmap');
+  const dateCounts = {};
+  completed.forEach(c => { dateCounts[c.date] = (dateCounts[c.date] || 0) + 1; });
+  for (let i = 59; i >= 0; i--) {
+    const dt = new Date();
+    dt.setDate(dt.getDate() - i);
+    const ds = dt.toISOString().slice(0, 10);
+    const count = dateCounts[ds] || 0;
+    const lvl = count === 0 ? '' : count <= 1 ? 'l1' : count <= 2 ? 'l2' : count <= 3 ? 'l3' : 'l4';
+    const el = document.createElement('div');
+    el.className = 'heat-day ' + lvl;
+    el.title = ds + ': ' + count + ' problem' + (count !== 1 ? 's' : '');
+    heatmap.appendChild(el);
+  }
+
+  // Spaced Repetition
+  const srList = document.getElementById('sr-list');
+  const sorted = [...sr].sort((a, b) => a.nextRetry.localeCompare(b.nextRetry));
+  sorted.forEach(item => {
+    let cls = 'later';
+    let label = item.nextRetry;
+    if (item.nextRetry < today) { cls = 'overdue'; label = 'OVERDUE'; }
+    else if (item.nextRetry === today) { cls = 'today'; label = 'TODAY'; }
+    else {
+      const diff = Math.ceil((new Date(item.nextRetry) - new Date(today)) / 86400000);
+      if (diff <= 3) { cls = 'upcoming'; label = 'in ' + diff + 'd'; }
+      else { label = 'in ' + diff + 'd'; }
+    }
+    srList.innerHTML += `<div class="sr-item"><span class="name">${item.problem}</span><span class="due ${cls}">${label}</span></div>`;
+  });
+
+  // Patterns
+  const patternsEl = document.getElementById('patterns');
+  patterns.forEach(p => {
+    const tags = p.problems.map(pr => `<span class="tag">${pr}</span>`).join('');
+    patternsEl.innerHTML += `
+      <div class="pattern-card">
+        <h3>${p.name}</h3>
+        <div class="trigger">${p.trigger}</div>
+        <pre>${escHtml(p.skeleton)}</pre>
+        <div class="problems">${tags}</div>
+      </div>
+    `;
+  });
+
+  // Recent log (newest first)
+  const logEl = document.getElementById('log');
+  [...completed].reverse().forEach(c => {
+    logEl.innerHTML += `
+      <div class="log-item">
+        <span class="date">${c.date}</span>
+        <span>${c.problem}</span>
+        <span class="diff ${c.difficulty}">${c.difficulty}</span>
+        ${c.notes ? '<span class="notes">' + escHtml(c.notes) + '</span>' : ''}
+      </div>
+    `;
+  });
+}
+
+function escHtml(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+load();
+</script>
+</body>
+</html>

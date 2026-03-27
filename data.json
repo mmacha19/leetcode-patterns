@@ -1,0 +1,81 @@
+{
+  "patterns": [
+    {
+      "id": "binary-search",
+      "name": "Binary Search",
+      "trigger": "Sorted array, find target or boundary. Halve the search space each step.",
+      "skeleton": "left, right = 0, len(arr) - 1\nwhile left < right:\n    mid = left + (right - left) // 2\n    if condition(mid):\n        right = mid\n    else:\n        left = mid + 1\nreturn left",
+      "problems": ["Binary Search", "First Bad Version"]
+    },
+    {
+      "id": "dfs-grid",
+      "name": "DFS / Flood Fill",
+      "trigger": "Grid or tree traversal, visit connected components, modify in-place.",
+      "skeleton": "def dfs(grid, r, c):\n    if out_of_bounds or visited: return\n    mark visited\n    dfs(grid, r+1, c)\n    dfs(grid, r-1, c)\n    dfs(grid, r, c+1)\n    dfs(grid, r, c-1)",
+      "problems": ["Flood Fill", "Invert Binary Tree"]
+    },
+    {
+      "id": "linked-list-reversal",
+      "name": "Linked List Reversal",
+      "trigger": "Reverse a linked list or portion of it. Three-pointer dance.",
+      "skeleton": "prev = None\nwhile head:\n    tmp = head.next\n    head.next = prev\n    prev = head\n    head = tmp\nreturn prev",
+      "problems": ["Reverse Linked List"]
+    },
+    {
+      "id": "two-pointers",
+      "name": "Two Pointers",
+      "trigger": "Sorted array/string, find pair or compare from both ends.",
+      "skeleton": "left, right = 0, len(arr) - 1\nwhile left < right:\n    if condition: return\n    elif too_small: left += 1\n    else: right -= 1",
+      "problems": ["Valid Palindrome"]
+    },
+    {
+      "id": "dummy-node",
+      "name": "Dummy Node",
+      "trigger": "Build a new linked list, or when head might change. Avoids edge cases.",
+      "skeleton": "dummy = ListNode(0)\ncurr = dummy\n# ... build list by setting curr.next\nreturn dummy.next",
+      "problems": ["Merge Two Sorted Lists"]
+    },
+    {
+      "id": "hashmap-dll",
+      "name": "HashMap + Doubly Linked List",
+      "trigger": "O(1) get + put with eviction order (LRU, LFU). Map for lookup, DLL for ordering.",
+      "skeleton": "map: key -> node\ndll: head <-> node <-> ... <-> tail\nget: lookup map, move node to front\nput: add to map + front, if full evict tail",
+      "problems": ["LRU Cache"]
+    },
+    {
+      "id": "dp-stairs",
+      "name": "Bottom-Up DP",
+      "trigger": "Count ways / min cost to reach end. Overlapping subproblems, optimal substructure.",
+      "skeleton": "dp = [0] * (n + 1)\ndp[0], dp[1] = base_cases\nfor i in range(2, n + 1):\n    dp[i] = dp[i-1] + dp[i-2]\nreturn dp[n]",
+      "problems": ["Climbing Stairs"]
+    }
+  ],
+  "completed": [
+    { "date": "2026-02-11", "problem": "Merge Two Sorted Lists", "difficulty": "Easy", "pattern": "dummy-node", "notes": "Clean dummy node approach, 15min" },
+    { "date": "2026-02-11", "problem": "Valid Palindrome", "difficulty": "Easy", "pattern": "two-pointers", "notes": "Solved with help, Python string methods rusty" },
+    { "date": "2026-03-24", "problem": "Invert Binary Tree", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Tree basics, recursion intro" },
+    { "date": "2026-03-24", "problem": "LRU Cache", "difficulty": "Medium", "pattern": "hashmap-dll", "notes": "Hashmap + doubly linked list design" },
+    { "date": "2026-03-26", "problem": "Binary Search", "difficulty": "Easy", "pattern": "binary-search", "notes": "Both iterative and recursive. Tougher than expected." },
+    { "date": "2026-03-27", "problem": "Flood Fill", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Grid DFS traversal" },
+    { "date": "2026-03-27", "problem": "First Bad Version", "difficulty": "Easy", "pattern": "binary-search", "notes": "Tricky — must include mid when recursing left if mid could be the answer. Base case: start == end." },
+    { "date": "2026-03-27", "problem": "Climbing Stairs", "difficulty": "Easy", "pattern": "dp-stairs", "notes": "Bottom-up DP array, straightforward." },
+    { "date": "2026-03-27", "problem": "Reverse Linked List", "difficulty": "Easy", "pattern": "linked-list-reversal", "notes": "prev starts as None not a dummy node. while head not while head.next. Return prev." }
+  ],
+  "spacedRepetition": [
+    { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
+    { "problem": "Valid Palindrome", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
+    { "problem": "Invert Binary Tree", "lastSolved": "2026-03-24", "nextRetry": "2026-03-27", "interval": 3 },
+    { "problem": "LRU Cache", "lastSolved": "2026-03-24", "nextRetry": "2026-03-27", "interval": 3 },
+    { "problem": "Binary Search", "lastSolved": "2026-03-26", "nextRetry": "2026-03-29", "interval": 3 },
+    { "problem": "Flood Fill", "lastSolved": "2026-03-27", "nextRetry": "2026-03-30", "interval": 3 },
+    { "problem": "First Bad Version", "lastSolved": "2026-03-27", "nextRetry": "2026-03-30", "interval": 3 },
+    { "problem": "Climbing Stairs", "lastSolved": "2026-03-27", "nextRetry": "2026-03-30", "interval": 3 },
+    { "problem": "Reverse Linked List", "lastSolved": "2026-03-27", "nextRetry": "2026-03-30", "interval": 3 }
+  ],
+  "weekPlan": {
+    "totalWeeks": 8,
+    "currentWeek": 1,
+    "totalProblems": 80,
+    "targetPerDay": 2
+  }
+}
