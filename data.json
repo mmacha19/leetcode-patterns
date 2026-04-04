@@ -48,6 +48,20 @@
       "trigger": "Count ways / min cost to reach end. Overlapping subproblems, optimal substructure.",
       "skeleton": "dp = [0] * (n + 1)\ndp[0], dp[1] = base_cases\nfor i in range(2, n + 1):\n    dp[i] = dp[i-1] + dp[i-2]\nreturn dp[n]",
       "problems": ["Climbing Stairs"]
+    },
+    {
+      "id": "counting-hashmap",
+      "name": "Counting / Frequency Map",
+      "trigger": "Compare character/element frequencies. One collection must be subset of another.",
+      "skeleton": "from collections import defaultdict\ncount = defaultdict(int)\nfor ch in source: count[ch] += 1\nfor ch in target:\n    count[ch] -= 1\n    if count[ch] < 0: return False\nreturn True",
+      "problems": ["Ransom Note", "Longest Palindrome"]
+    },
+    {
+      "id": "boyer-moore-voting",
+      "name": "Boyer-Moore Voting",
+      "trigger": "Find element appearing more than n/2 times. O(n) time, O(1) space.",
+      "skeleton": "candidate, count = None, 0\nfor num in nums:\n    if count == 0: candidate = num\n    count += 1 if num == candidate else -1\nreturn candidate",
+      "problems": ["Majority Element"]
     }
   ],
   "completed": [
@@ -59,7 +73,11 @@
     { "date": "2026-03-27", "problem": "Flood Fill", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Grid DFS traversal" },
     { "date": "2026-03-27", "problem": "First Bad Version", "difficulty": "Easy", "pattern": "binary-search", "notes": "Tricky — must include mid when recursing left if mid could be the answer. Base case: start == end." },
     { "date": "2026-03-27", "problem": "Climbing Stairs", "difficulty": "Easy", "pattern": "dp-stairs", "notes": "Bottom-up DP array, straightforward." },
-    { "date": "2026-03-27", "problem": "Reverse Linked List", "difficulty": "Easy", "pattern": "linked-list-reversal", "notes": "prev starts as None not a dummy node. while head not while head.next. Return prev." }
+    { "date": "2026-03-27", "problem": "Reverse Linked List", "difficulty": "Easy", "pattern": "linked-list-reversal", "notes": "prev starts as None not a dummy node. while head not while head.next. Return prev." },
+    { "date": "2026-04-01", "problem": "Ransom Note", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "defaultdict(int), decrement for each ransomNote char, return False if count < 0" },
+    { "date": "2026-04-02", "problem": "Design HashSet", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Two approaches: boolean array 10^6+1 (brute) vs smaller array + chaining (real hash)" },
+    { "date": "2026-04-03", "problem": "Longest Palindrome", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "Take even portion of all chars (val//2)*2. Add 1 if any odd-frequency char exists (center)." },
+    { "date": "2026-04-04", "problem": "Majority Element", "difficulty": "Easy", "pattern": "boyer-moore-voting", "notes": "Boyer-Moore voting: candidate + count. Decrement on mismatch, reassign at 0. Survives because majority > n/2." }
   ],
   "spacedRepetition": [
     { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
@@ -70,7 +88,11 @@
     { "problem": "Flood Fill", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 },
     { "problem": "First Bad Version", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 },
     { "problem": "Climbing Stairs", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 },
-    { "problem": "Reverse Linked List", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 }
+    { "problem": "Reverse Linked List", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 },
+    { "problem": "Ransom Note", "lastSolved": "2026-04-01", "nextRetry": "2026-04-08", "interval": 7 },
+    { "problem": "Design HashSet", "lastSolved": "2026-04-02", "nextRetry": "2026-04-09", "interval": 7 },
+    { "problem": "Longest Palindrome", "lastSolved": "2026-04-03", "nextRetry": "2026-04-10", "interval": 7 },
+    { "problem": "Majority Element", "lastSolved": "2026-04-04", "nextRetry": "2026-04-11", "interval": 7 }
   ],
   "weekPlan": {
     "totalWeeks": 8,
@@ -79,10 +101,6 @@
     "targetPerDay": 2
   },
   "upNext": [
-    { "problem": "Design HashSet", "difficulty": "Easy", "pattern": "Design", "week": 1 },
-    { "problem": "Ransom Note", "difficulty": "Easy", "pattern": "Counting", "week": 2 },
-    { "problem": "Longest Palindrome", "difficulty": "Easy", "pattern": "Counting", "week": 2 },
-    { "problem": "Majority Element", "difficulty": "Easy", "pattern": "Array", "week": 2 },
     { "problem": "Add Binary", "difficulty": "Easy", "pattern": "String", "week": 2 },
     { "problem": "Diameter of Binary Tree", "difficulty": "Easy", "pattern": "Tree Recursion", "week": 2 },
     { "problem": "Middle of the Linked List", "difficulty": "Easy", "pattern": "Two Pointers", "week": 2 },
