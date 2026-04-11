@@ -82,7 +82,9 @@
     { "date": "2026-04-07", "problem": "Diameter of Binary Tree", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Tree recursion, track max diameter via DFS height" },
     { "date": "2026-04-09", "problem": "Merge Two Sorted Lists", "difficulty": "Easy", "pattern": "dummy-node", "notes": "Retry — dummy node approach" },
     { "date": "2026-04-09", "problem": "Middle of the Linked List", "difficulty": "Easy", "pattern": "two-pointers", "notes": "Slow/fast pointer" },
-    { "date": "2026-04-10", "problem": "Design HashMap", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Hash function + chaining" }
+    { "date": "2026-04-10", "problem": "Design HashMap", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Hash function + chaining" },
+    { "date": "2026-04-10", "problem": "Design HashSet", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Retry — hashing fundamentals" },
+    { "date": "2026-04-10", "problem": "Ransom Note", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "Retry — frequency map" }
   ],
   "spacedRepetition": [
     { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
