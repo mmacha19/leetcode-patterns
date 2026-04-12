@@ -84,7 +84,9 @@
     { "date": "2026-04-09", "problem": "Middle of the Linked List", "difficulty": "Easy", "pattern": "two-pointers", "notes": "Slow/fast pointer" },
     { "date": "2026-04-10", "problem": "Design HashMap", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Hash function + chaining" },
     { "date": "2026-04-10", "problem": "Design HashSet", "difficulty": "Easy", "pattern": "design-hashing", "notes": "Retry — hashing fundamentals" },
-    { "date": "2026-04-10", "problem": "Ransom Note", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "Retry — frequency map" }
+    { "date": "2026-04-10", "problem": "Ransom Note", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "Retry — frequency map" },
+    { "date": "2026-04-11", "problem": "Min Stack", "difficulty": "Medium", "pattern": "stack-design", "notes": "Two stacks — main + min tracker" },
+    { "date": "2026-04-11", "problem": "Longest Substring Without Repeating Characters", "difficulty": "Medium", "pattern": "sliding-window", "notes": "Sliding window + hashset" }
   ],
   "spacedRepetition": [
     { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
@@ -113,9 +115,7 @@
     "targetPerDay": 2
   },
   "upNext": [
-    { "problem": "Min Stack", "difficulty": "Medium", "pattern": "Stack Design", "week": 2 },
     { "problem": "Insert Interval", "difficulty": "Medium", "pattern": "Array", "week": 3 },
-    { "problem": "Longest Substring Without Repeating Characters", "difficulty": "Medium", "pattern": "Sliding Window", "week": 3 },
     { "problem": "3Sum", "difficulty": "Medium", "pattern": "Two Pointers", "week": 3 }
   ]
 }
