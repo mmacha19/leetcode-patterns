@@ -89,7 +89,8 @@
     { "date": "2026-04-11", "problem": "Longest Substring Without Repeating Characters", "difficulty": "Medium", "pattern": "sliding-window", "notes": "Sliding window + hashset" },
     { "date": "2026-04-12", "problem": "Valid Palindrome", "difficulty": "Easy", "pattern": "two-pointers", "notes": "Retry" },
     { "date": "2026-04-12", "problem": "Ransom Note", "difficulty": "Easy", "pattern": "counting-hashmap", "notes": "Retry #2" },
-    { "date": "2026-04-12", "problem": "LRU Cache", "difficulty": "Medium", "pattern": "hashmap-dll", "notes": "Retry — list+hashmap approach works but O(n) remove. Need to drill DLL version for O(1)." }
+    { "date": "2026-04-12", "problem": "LRU Cache", "difficulty": "Medium", "pattern": "hashmap-dll", "notes": "Retry — list+hashmap approach works but O(n) remove. Need to drill DLL version for O(1)." },
+    { "date": "2026-04-13", "problem": "Merge Intervals", "difficulty": "Medium", "pattern": "intervals", "notes": "Sort by start, merge overlapping" }
   ],
   "spacedRepetition": [
     { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
