@@ -94,7 +94,9 @@
     { "date": "2026-04-16", "problem": "Insert Interval", "difficulty": "Medium", "pattern": "intervals", "notes": "Array manipulation, merge intervals" },
     { "date": "2026-04-16", "problem": "3Sum", "difficulty": "Medium", "pattern": "two-pointers", "notes": "Sort + two pointers, skip duplicates" },
     { "date": "2026-04-18", "problem": "Flood Fill", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Retry — grid DFS warmup" },
-    { "date": "2026-04-18", "problem": "Number of Islands", "difficulty": "Medium", "pattern": "dfs-grid", "notes": "Grid DFS, mark visited, count components" }
+    { "date": "2026-04-18", "problem": "Number of Islands", "difficulty": "Medium", "pattern": "dfs-grid", "notes": "Grid DFS, mark visited, count components" },
+    { "date": "2026-04-20", "problem": "01 Matrix", "difficulty": "Medium", "pattern": "bfs", "notes": "Multi-source BFS — start from all zeros, expand outward" },
+    { "date": "2026-04-20", "problem": "Invert Binary Tree", "difficulty": "Easy", "pattern": "dfs-grid", "notes": "Retry — tree recursion" }
   ],
   "spacedRepetition": [
     { "problem": "Merge Two Sorted Lists", "lastSolved": "2026-02-11", "nextRetry": "2026-04-01", "interval": 3 },
@@ -123,7 +125,6 @@
     "targetPerDay": 2
   },
   "upNext": [
-    { "problem": "01 Matrix", "difficulty": "Medium", "pattern": "BFS", "week": 3 },
     { "problem": "K Closest Points to Origin", "difficulty": "Medium", "pattern": "Heap", "week": 3 },
     { "problem": "Binary Tree Level Order Traversal", "difficulty": "Medium", "pattern": "BFS", "week": 3 },
     { "problem": "Clone Graph", "difficulty": "Medium", "pattern": "Graph DFS/BFS", "week": 3 },
