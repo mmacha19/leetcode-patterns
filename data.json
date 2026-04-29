@@ -341,112 +341,200 @@
   ],
   "spacedRepetition": [
     {
-      "problem": "Merge Two Sorted Lists",
-      "lastSolved": "2026-02-11",
-      "nextRetry": "2026-04-01",
-      "interval": 3
-    },
-    {
-      "problem": "Valid Palindrome",
-      "lastSolved": "2026-02-11",
-      "nextRetry": "2026-04-01",
-      "interval": 3
-    },
-    {
-      "problem": "Invert Binary Tree",
-      "lastSolved": "2026-03-24",
-      "nextRetry": "2026-03-27",
-      "interval": 3
-    },
-    {
-      "problem": "LRU Cache",
-      "lastSolved": "2026-03-24",
-      "nextRetry": "2026-03-27",
-      "interval": 3
-    },
-    {
       "problem": "Binary Search",
       "lastSolved": "2026-03-26",
       "nextRetry": "2026-03-29",
-      "interval": 3
-    },
-    {
-      "problem": "Flood Fill",
-      "lastSolved": "2026-04-01",
-      "nextRetry": "2026-04-08",
-      "interval": 7
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "First Bad Version",
-      "lastSolved": "2026-04-01",
-      "nextRetry": "2026-04-08",
-      "interval": 7
+      "lastSolved": "2026-03-27",
+      "nextRetry": "2026-03-30",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Climbing Stairs",
-      "lastSolved": "2026-04-01",
-      "nextRetry": "2026-04-08",
-      "interval": 7
+      "lastSolved": "2026-03-27",
+      "nextRetry": "2026-03-30",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Reverse Linked List",
-      "lastSolved": "2026-04-01",
-      "nextRetry": "2026-04-08",
-      "interval": 7
-    },
-    {
-      "problem": "Ransom Note",
-      "lastSolved": "2026-04-01",
-      "nextRetry": "2026-04-08",
-      "interval": 7
-    },
-    {
-      "problem": "Design HashSet",
-      "lastSolved": "2026-04-02",
-      "nextRetry": "2026-04-09",
-      "interval": 7
+      "lastSolved": "2026-03-27",
+      "nextRetry": "2026-03-30",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Longest Palindrome",
       "lastSolved": "2026-04-03",
-      "nextRetry": "2026-04-10",
-      "interval": 7
+      "nextRetry": "2026-04-06",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Majority Element",
       "lastSolved": "2026-04-04",
-      "nextRetry": "2026-04-11",
-      "interval": 7
+      "nextRetry": "2026-04-07",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Add Binary",
       "lastSolved": "2026-04-06",
-      "nextRetry": "2026-04-13",
-      "interval": 7
+      "nextRetry": "2026-04-09",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Diameter of Binary Tree",
       "lastSolved": "2026-04-07",
+      "nextRetry": "2026-04-10",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Middle of the Linked List",
+      "lastSolved": "2026-04-09",
+      "nextRetry": "2026-04-12",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Design HashMap",
+      "lastSolved": "2026-04-10",
+      "nextRetry": "2026-04-13",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Min Stack",
+      "lastSolved": "2026-04-11",
       "nextRetry": "2026-04-14",
-      "interval": 7
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Longest Substring Without Repeating Characters",
+      "lastSolved": "2026-04-11",
+      "nextRetry": "2026-04-14",
+      "interval": 3,
+      "attempts": 1
     },
     {
       "problem": "Merge Two Sorted Lists",
       "lastSolved": "2026-04-09",
       "nextRetry": "2026-04-16",
-      "interval": 7
+      "interval": 7,
+      "attempts": 2
     },
     {
-      "problem": "Middle of the Linked List",
-      "lastSolved": "2026-04-09",
+      "problem": "Merge Intervals",
+      "lastSolved": "2026-04-13",
       "nextRetry": "2026-04-16",
-      "interval": 7
+      "interval": 3,
+      "attempts": 1
     },
     {
-      "problem": "Design HashMap",
+      "problem": "Design HashSet",
       "lastSolved": "2026-04-10",
       "nextRetry": "2026-04-17",
-      "interval": 7
+      "interval": 7,
+      "attempts": 2
+    },
+    {
+      "problem": "Valid Palindrome",
+      "lastSolved": "2026-04-12",
+      "nextRetry": "2026-04-19",
+      "interval": 7,
+      "attempts": 2
+    },
+    {
+      "problem": "LRU Cache",
+      "lastSolved": "2026-04-12",
+      "nextRetry": "2026-04-19",
+      "interval": 7,
+      "attempts": 2
+    },
+    {
+      "problem": "Insert Interval",
+      "lastSolved": "2026-04-16",
+      "nextRetry": "2026-04-19",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "3Sum",
+      "lastSolved": "2026-04-16",
+      "nextRetry": "2026-04-19",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Number of Islands",
+      "lastSolved": "2026-04-18",
+      "nextRetry": "2026-04-21",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "01 Matrix",
+      "lastSolved": "2026-04-20",
+      "nextRetry": "2026-04-23",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Binary Tree Level Order Traversal",
+      "lastSolved": "2026-04-20",
+      "nextRetry": "2026-04-23",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Flood Fill",
+      "lastSolved": "2026-04-18",
+      "nextRetry": "2026-04-25",
+      "interval": 7,
+      "attempts": 2
+    },
+    {
+      "problem": "Ransom Note",
+      "lastSolved": "2026-04-12",
+      "nextRetry": "2026-04-26",
+      "interval": 14,
+      "attempts": 3
+    },
+    {
+      "problem": "K Closest Points to Origin",
+      "lastSolved": "2026-04-23",
+      "nextRetry": "2026-04-26",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Invert Binary Tree",
+      "lastSolved": "2026-04-20",
+      "nextRetry": "2026-04-27",
+      "interval": 7,
+      "attempts": 2
+    },
+    {
+      "problem": "Clone Graph",
+      "lastSolved": "2026-04-29",
+      "nextRetry": "2026-05-02",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Encode and Decode Strings",
+      "lastSolved": "2026-04-29",
+      "nextRetry": "2026-05-02",
+      "interval": 3,
+      "attempts": 1
     }
   ],
   "weekPlan": {
