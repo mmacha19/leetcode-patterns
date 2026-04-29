@@ -330,6 +330,13 @@
       "difficulty": "Medium",
       "pattern": "string-design",
       "notes": "Length-prefix encoding: store len + delimiter + string. Simple but tricky edge cases."
+    },
+    {
+      "date": "2026-04-23",
+      "problem": "K Closest Points to Origin",
+      "difficulty": "Medium",
+      "pattern": "heap",
+      "notes": "Max-heap of size K with (dist, point) tuples. No sqrt needed, squared distance preserves ordering."
     }
   ],
   "spacedRepetition": [
@@ -449,12 +456,6 @@
     "targetPerDay": 2
   },
   "upNext": [
-    {
-      "problem": "K Closest Points to Origin",
-      "difficulty": "Medium",
-      "pattern": "Heap",
-      "week": 3
-    },
     {
       "problem": "Course Schedule",
       "difficulty": "Medium",
