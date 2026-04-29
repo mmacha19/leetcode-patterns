@@ -120,11 +120,11 @@ h1{font-size:28px;font-weight:700;margin-bottom:4px}
   <div class="progress-label"><span id="progress-done"></span><span id="progress-total"></span></div>
 </div>
 
-<div class="section-title"><span>🔁</span> Retries Due Today</div>
-<div id="retries-due" class="retries-container"></div>
-
 <div class="section-title"><span>⏭</span> Up Next</div>
 <div class="queue-list" id="queue"></div>
+
+<div class="section-title"><span>🔁</span> Retries Due Today</div>
+<div id="retries-due" class="retries-container"></div>
 
 <div class="section-title"><span>📋</span> Recent Solves</div>
 <div class="recent-grid" id="recent"></div>
@@ -190,30 +190,6 @@ function render(data) {
   document.getElementById('progress-done').textContent = totalSolved + ' solved';
   document.getElementById('progress-total').textContent = total + ' total';
 
-  // Retries Due Today (overdue + today)
-  const retriesEl = document.getElementById('retries-due');
-  const todayRetries = sr.filter(item => item.nextRetry <= today);
-  if (todayRetries.length === 0) {
-    retriesEl.innerHTML = '<div class="retries-empty">✅ No retries due — you\'re caught up!</div>';
-  } else {
-    // Update section title with count
-    retriesEl.previousElementSibling.innerHTML = `<span>🔁</span> Retries Due Today <span class="retry-count-badge">${todayRetries.length}</span>`;
-    todayRetries.sort((a, b) => a.nextRetry.localeCompare(b.nextRetry));
-    todayRetries.forEach(item => {
-      const daysOverdue = Math.ceil((new Date(today) - new Date(item.nextRetry)) / 86400000);
-      const overdueLabel = daysOverdue > 0 ? `${daysOverdue}d overdue` : 'due today';
-      retriesEl.innerHTML += `
-        <div class="retry-card">
-          <span class="name">${item.problem}</span>
-          <div class="meta">
-            <span class="attempts-badge">${item.attempts || '?'} attempt${(item.attempts||0)!==1?'s':''}</span>
-            <span class="interval-badge">${overdueLabel}</span>
-          </div>
-        </div>
-      `;
-    });
-  }
-
   // Up Next queue
   const queueEl = document.getElementById('queue');
   upNext.slice(0, 6).forEach((item, i) => {
@@ -278,6 +254,30 @@ function render(data) {
     }
     srList.innerHTML += `<div class="sr-item"><span class="name">${item.problem}</span><span class="due ${cls}">${label}</span></div>`;
   });
+
+  // Retries Due Today (overdue + today)
+  const retriesEl = document.getElementById('retries-due');
+  const todayRetries = sr.filter(item => item.nextRetry <= today);
+  if (todayRetries.length === 0) {
+    retriesEl.innerHTML = '<div class="retries-empty">✅ No retries due — you\'re caught up!</div>';
+  } else {
+    // Update section title with count
+    retriesEl.previousElementSibling.innerHTML = `<span>🔁</span> Retries Due Today <span class="retry-count-badge">${todayRetries.length}</span>`;
+    todayRetries.sort((a, b) => a.nextRetry.localeCompare(b.nextRetry));
+    todayRetries.forEach(item => {
+      const daysOverdue = Math.ceil((new Date(today) - new Date(item.nextRetry)) / 86400000);
+      const overdueLabel = daysOverdue > 0 ? `${daysOverdue}d overdue` : 'due today';
+      retriesEl.innerHTML += `
+        <div class="retry-card">
+          <span class="name">${item.problem}</span>
+          <div class="meta">
+            <span class="attempts-badge">${item.attempts || '?'} attempt${(item.attempts||0)!==1?'s':''}</span>
+            <span class="interval-badge">${overdueLabel}</span>
+          </div>
+        </div>
+      `;
+    });
+  }
 
   // Patterns
   const patternsEl = document.getElementById('patterns');
