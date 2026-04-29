@@ -323,6 +323,13 @@
       "difficulty": "Medium",
       "pattern": "graph-bfs-dfs",
       "notes": "Deep copy graph with hashmap to track visited. Hard first attempt, needs retry."
+    },
+    {
+      "date": "2026-04-29",
+      "problem": "Encode and Decode Strings",
+      "difficulty": "Medium",
+      "pattern": "string-design",
+      "notes": "Length-prefix encoding: store len + delimiter + string. Simple but tricky edge cases."
     }
   ],
   "spacedRepetition": [
@@ -446,12 +453,6 @@
       "problem": "K Closest Points to Origin",
       "difficulty": "Medium",
       "pattern": "Heap",
-      "week": 3
-    },
-    {
-      "problem": "Encode and Decode Strings",
-      "difficulty": "Medium",
-      "pattern": "Design",
       "week": 3
     },
     {
