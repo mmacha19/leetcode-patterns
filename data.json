@@ -72,7 +72,9 @@
       "skeleton": "from collections import defaultdict\ncount = defaultdict(int)\nfor ch in source: count[ch] += 1\nfor ch in target:\n    count[ch] -= 1\n    if count[ch] < 0: return False\nreturn True",
       "problems": [
         "Ransom Note",
-        "Longest Palindrome"
+        "Longest Palindrome",
+        "Top K Frequent Elements",
+        "Group Anagrams"
       ]
     },
     {
@@ -83,9 +85,39 @@
       "problems": [
         "Majority Element"
       ]
+    },
+    {
+      "id": "design",
+      "name": "System Design (LC-style)",
+      "trigger": "Build small system: pick data structures, handle edge cases. Length-prefix, hash+DLL, etc.",
+      "skeleton": "# Encode/Decode strings: length-prefix\ndef encode(strs): return ''.join(f'{len(s)}#{s}' for s in strs)\ndef decode(s):\n    res, i = [], 0\n    while i < len(s):\n        j = s.find('#', i)\n        n = int(s[i:j])\n        res.append(s[j+1:j+1+n])\n        i = j+1+n\n    return res",
+      "problems": [
+        "Encode and Decode Strings"
+      ]
     }
   ],
   "completed": [
+    {
+      "date": "2026-05-12",
+      "problem": "Top K Frequent Elements",
+      "difficulty": "Medium",
+      "pattern": "counting-hashmap",
+      "notes": "Counter + sort by frequency, slice top k. Heap version O(n log k) is more efficient for large n; bucket sort is O(n)."
+    },
+    {
+      "date": "2026-05-12",
+      "problem": "Group Anagrams",
+      "difficulty": "Medium",
+      "pattern": "counting-hashmap",
+      "notes": "defaultdict(list) with key = tuple of char frequencies (length-26 tuple). sorted(s) tuple also works as key."
+    },
+    {
+      "date": "2026-05-12",
+      "problem": "Encode and Decode Strings",
+      "difficulty": "Medium",
+      "pattern": "design",
+      "notes": "Length-prefix encoding: f'{len(s)}#{s}'. Decode: parse digits until '#', then take next len chars. Avoids delimiter collisions."
+    },
     {
       "date": "2026-02-11",
       "problem": "Merge Two Sorted Lists",
@@ -540,6 +572,20 @@
       "problem": "Encode and Decode Strings",
       "lastSolved": "2026-04-29",
       "nextRetry": "2026-05-02",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Top K Frequent Elements",
+      "lastSolved": "2026-05-12",
+      "nextRetry": "2026-05-15",
+      "interval": 3,
+      "attempts": 1
+    },
+    {
+      "problem": "Group Anagrams",
+      "lastSolved": "2026-05-12",
+      "nextRetry": "2026-05-15",
       "interval": 3,
       "attempts": 1
     }
